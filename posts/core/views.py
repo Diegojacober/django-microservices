@@ -7,7 +7,7 @@ from .serializers import PostSerializer
 class PostApiView(APIView):
     def get(self, request):
         posts = Post.objects.all()
-        serializer = PostSerializer(data=posts)
+        serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
         
         
